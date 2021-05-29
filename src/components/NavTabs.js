@@ -6,6 +6,12 @@ function NavTabs() {
       <li className="nav-item">
         <Link to="/">About</Link>
       </li>
+      <li>
+        <Link to="/discover">Discover</Link>
+      </li>
+      <li>
+        <Link to="/search">Search</Link>
+      </li>
     </ul>
   )
 

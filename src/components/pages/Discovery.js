@@ -1,4 +1,4 @@
-function Discover() {
+function Discovery() {
   return (
     <div>
       <h2>Make New Friends</h2>
@@ -10,3 +10,5 @@ function Discover() {
     </div>
   )
 }
+
+export default Discovery;
