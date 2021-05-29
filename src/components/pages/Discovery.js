@@ -4,7 +4,9 @@ import React from "react";
 class Discovery extends React.Component {
 
   state = {
-    image : ""
+    image : "",
+    friends : 0,
+    liked: false
   }
 
   componentDidMount() {
@@ -18,9 +20,32 @@ class Discovery extends React.Component {
       })
   }
 
+  handleDown = () => {
+    this.state.liked = false;
+    this.getDog();
+  }
+
+  handleUp = () => {
+    this.state.liked = false;
+    // one in five chance
+    const res = Math.floor(Math.random() * 5);
+    if (res == 0) {
+      this.setState({
+        friends : this.state.friends + 1,
+        liked : true
+      })
+    }
+    this.getDog();
+  }
+
   render() {
 
     const dogUrl = this.state.image;
+    let message = "";
+
+    if (this.state.liked) {
+      message = <p>That dog liked you too! You made another friend!</p>
+    }
 
     return (
       <div>
@@ -28,13 +53,15 @@ class Discovery extends React.Component {
         <h3>Thumbs up on any pups you'd like to meet!</h3>
         <div style={{backgroundImage: `url(${dogUrl})`, backgroundSize: 
         "cover", backgroundPosition: "center", height: "500px", width: "500px"}} id="doggo-frame">
-        <button type="button" className="btn btn-outline-danger" id="no">
-        <i className="fas fa-thumbs-up"></i>
-        </button>
-        <button type="button" className="btn btn-outline-success" id="yes">
+        <button type="button" className="btn btn-outline-danger" id="no" onClick={this.handleDown}>
         <i className="fas fa-thumbs-down"></i>
         </button>
+        <button type="button" className="btn btn-outline-success" id="yes" onClick={this.handleUp}>
+        <i className="fas fa-thumbs-up"></i>
+        </button>
       </div>
+      <p>You have {this.state.friends} friends!</p>
+      {message}
     </div>
     )
   } 
