@@ -5,6 +5,7 @@ import About from './components/pages/About';
 import Discovery from './components/pages/Discovery';
 import Search from './components/pages/Search';
 
+
 function App() {
   return (
     <Router>
@@ -15,8 +16,6 @@ function App() {
         <Route exact path="/search" component={Search} />
       </div>
     </Router>
-
-
   );
 }
 
