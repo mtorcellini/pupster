@@ -5,8 +5,10 @@ function About() {
     <div>
 
       <div className="hero">
-        <h1>Pupster</h1>
-        <h2>They're the Good Boys and Girls</h2>
+        <div className="overlay">
+          <h1>Pupster</h1>
+          <h2>They're the Good Boys and Girls</h2>
+        </div>
       </div>
       <div className="container-fluid">
         <div className="content">

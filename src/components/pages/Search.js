@@ -22,11 +22,12 @@ class Search extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const url = `https://dog.ceo/api/breed/${this.state.search}`;
-    axios.get(url + '/images/random/5')
+    axios.get(url + '/images/random/9')
       .then(res => {
         console.log(res);
         this.setState({
-          results: res.data.message
+          results: res.data.message,
+          search: ""
         })
       });
   }
@@ -55,23 +56,29 @@ class Search extends React.Component {
     const breedsList = this.state.breeds.map(breed => <option value={breed}></option>)
 
     return (
-      <div>
+      <div className="search container">
 
-        <h1>Search By Breed!</h1>
+        <h1 className="mt-3 mb-3">Search By Breed!</h1>
 
-        <input name="breed"
-          list="breeds"
-          placeholder="Type in a dog breed to begin"
-          onChange={this.handleInputChange}
-          value={this.state.search}
-        />
+        <form onSubmit={this.handleSubmit}>
+          <div className="mb-3">
+            <label for="breed" className="form-label">Breed Name:</label>
+            <input name="breed"
+              list="breeds"
+              className="form-control"
+              placeholder="Type in a dog breed to begin"
+              onChange={this.handleInputChange}
+              value={this.state.search}
+            />
+            <datalist id="breeds">
+              {breedsList}
+            </datalist>
+          </div>
 
-        <datalist id="breeds">
-          {breedsList}
-        </datalist>
+          <button type="submit" className="btn btn-primary" >Search</button>
+        </form>
 
-        <button onClick={this.handleSubmit}>Search</button>
-        <div>
+        <div className="gallery">
           {dogImages}
         </div>
       </div>
