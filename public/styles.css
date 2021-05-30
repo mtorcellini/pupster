@@ -1,0 +1,27 @@
+.hero {
+  background-image: url('./images/hannah-grace-fk4tiMlDFF0-unsplash.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 650px;
+  width: 100%;
+  padding: 300px 0 0;
+  color: white;
+}
+
+.hero h1, .hero h2 {
+  width: 100%;
+  text-align: center;
+  line-height: 2.5em;
+}
+
+.content {
+  margin: 10px auto;
+  width: 100%;
+}
+
+
+@media (min-width: 768px) {
+  .content {
+    width: 75%;
+  }
+}
