@@ -28,7 +28,7 @@ class Discovery extends React.Component {
   handleUp = () => {
     this.state.liked = false;
     // one in five chance
-    const res = Math.floor(Math.random() * 5);
+    const res = Math.floor(Math.random() * 3);
     if (res == 0) {
       this.setState({
         friends : this.state.friends + 1,
@@ -44,24 +44,24 @@ class Discovery extends React.Component {
     let message = "";
 
     if (this.state.liked) {
-      message = <p>That dog liked you too! You made another friend!</p>
+      message = <p className="like-message">That dog liked you too! You made another friend!</p>
     }
 
     return (
-      <div>
+      <div className="discover">
         <h2>Make New Friends</h2>
         <h3>Thumbs up on any pups you'd like to meet!</h3>
-        <div style={{backgroundImage: `url(${dogUrl})`, backgroundSize: 
+        <div className="dogpic" style={{backgroundImage: `url(${dogUrl})`, backgroundSize: 
         "cover", backgroundPosition: "center", height: "500px", width: "500px"}} id="doggo-frame">
-        <button type="button" className="btn btn-outline-danger" id="no" onClick={this.handleDown}>
+        <button type="button" className="thumb btn btn-danger" id="no" onClick={this.handleDown}>
         <i className="fas fa-thumbs-down"></i>
         </button>
-        <button type="button" className="btn btn-outline-success" id="yes" onClick={this.handleUp}>
+        <button type="button" className="thumb btn btn-success" id="yes" onClick={this.handleUp}>
         <i className="fas fa-thumbs-up"></i>
         </button>
       </div>
-      <p>You have {this.state.friends} friends!</p>
       {message}
+      <p>You have {this.state.friends} friends!</p>
     </div>
     )
   } 
