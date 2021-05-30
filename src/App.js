@@ -1,5 +1,5 @@
 import './App.css';
-import {HashRouter as Router, Route} from 'react-router-dom';
+import {ReactRouter as Router, Route} from 'react-router-dom';
 import NavTabs from './components/NavTabs';
 import About from './components/pages/About';
 import Discovery from './components/pages/Discovery';
@@ -8,7 +8,7 @@ import Search from './components/pages/Search';
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div>
         <NavTabs />
         <Route exact path="/" component={About} />
