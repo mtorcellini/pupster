@@ -21,15 +21,19 @@ class Discovery extends React.Component {
   }
 
   handleDown = () => {
-    this.state.liked = false;
+    this.setState({
+      liked: false
+    })
     this.getDog();
   }
 
   handleUp = () => {
-    this.state.liked = false;
+    this.setState({
+      liked: false
+    })
     // one in five chance
     const res = Math.floor(Math.random() * 3);
-    if (res == 0) {
+    if (res === 0) {
       this.setState({
         friends : this.state.friends + 1,
         liked : true
